@@ -42,6 +42,14 @@
                 <div class="form-group">
                   <label class="account-form__label" for="name">Account Number</label>
                   <input type="text" class="form-control" formControlName="accountNumber" />
+                  <span 
+                    class="errorText" 
+                    *ngIf="
+                      !clientAccountForm.get('accounts.0').get('accountNumber').valid && 
+                      clientAccountForm.get('accounts.0').get('accountNumber').touched
+                      ">
+                      კლიენტის ნომერი უნდა შედგებოდეს მხოლოდ ციფრებისგან!
+                  </span>
                   <span *ngIf="accountExist" [class.errorText]="accountExist">
                     ასეთი ექაუნთი უკვე არსებობს
                   </span>

@@ -7,7 +7,7 @@
     #dt2
     [value]="clients"
     [paginator]="true"
-    [rows]="20"
+    [rows]="5"
     [globalFilterFields]="['clientNumber', 'clientName', 'clientMobileNumber']"
   >
     <ng-template pTemplate="caption">
@@ -27,9 +27,9 @@
     <ng-template pTemplate="header">
       <tr colspan="12">
         <th>Thumbnail</th>
-        <th>Number</th>
+        <th pSortableColumn="clientNumber">Number <p-sortIcon field="clientNumber"></p-sortIcon></th>
         <th pSortableColumn="clientName">Name <p-sortIcon field="clientName"></p-sortIcon></th>
-        <th>Mobile</th>
+        <th pSortableColumn="clientMobileNumber">Mobile <p-sortIcon field="clientMobileNumber"></p-sortIcon></th>
         <th>Actions</th>
       </tr>
       <tr colspan="12">
