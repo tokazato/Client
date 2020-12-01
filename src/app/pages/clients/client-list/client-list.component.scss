@@ -1,0 +1,24 @@
+.client-list {
+  &__thumbnail {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  &__link {
+    margin: 10px;
+  }
+
+  &__icon {
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  &__search {
+    padding: 5px 0 5px 20px;
+  }
+
+  &__button {
+    margin-bottom: 20px;
+  }
+}

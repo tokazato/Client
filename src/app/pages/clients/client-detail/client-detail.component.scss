@@ -1,0 +1,63 @@
+.client-detail {
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    &__title {
+      color: #337ab7;
+      font-family: cursive;
+      margin-top: 4px;
+    }
+  }
+  &__button {
+    margin-right: 20px;
+  }
+  &__thumbnail-holder {
+    text-align: center;
+  }
+
+  &__thumbnail {
+    max-width: 100px;
+  }
+
+  &__fullname-holder {
+    text-align: left;
+    font-family: cursive;
+    color: #034885;
+  }
+
+  &__name {
+    font-size: 38px;
+  }
+
+  &__surname {
+    font-size: 28px;
+  }
+
+  &__properties-holder {
+    margin-top: 20px;
+  }
+
+  &__property {
+    font-size: 16px;
+
+    &--extra-margin {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__label {
+    margin-right: 5px;
+    font-family: cursive;
+    font-size: 17px;
+  }
+
+  &__value {
+    font-size: 14px;
+    font-family: cursive;
+  }
+}
+
+.active {
+  display: block;
+}

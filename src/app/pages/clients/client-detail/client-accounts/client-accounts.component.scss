@@ -1,0 +1,21 @@
+.accounts {
+  &__title {
+    color: #337ab7;
+    font-family: cursive;
+  }
+  &__th {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__td {
+    font-size: 13px;
+  }
+  &__disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    button {
+      pointer-events: none;
+      opacity: 0.2;
+    }
+  }
+}

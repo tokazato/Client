@@ -1,0 +1,100 @@
+<div class="client-detail">
+  <div class="row client-detail__header">
+    <h1 class="client-detail__header__title col-xs-6">Personal Information</h1>
+    <div class="col-xs-6">
+      <div class="pull-right">
+        <button
+          type="button"
+          class="client-detail__button btn btn-primary"
+          (click)="onEditclient()"
+        >
+          Edit client
+        </button>
+
+        <button
+          type="button"
+          class="client-detail__button btn btn-primary"
+          (click)="onDeleteclient()"
+        >
+          Delete client
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-3 client-detail__thumbnail-holder">
+              <img
+                class="client-detail__thumbnail"
+                [src]="client.clientImage"
+                alt="{{ client.clientImage }}"
+              />
+            </div>
+
+            <div class="col-xs-3 client-detail__fullname-holder">
+              <div class="client-detail__name">{{ client.clientName }}</div>
+              <div class="client-detail__surname">{{ client.clientSurname }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="client-detail__properties-holder">
+        <div class="client-detail__property">
+          <span class="client-detail__label">Client Number :</span>
+          <span class="client-detail__value"> {{ client.clientNumber }} </span>
+        </div>
+
+        <div class="client-detail__property">
+          <span class="client-detail__label">Gender :</span>
+          <span class="client-detail__value"> {{ client.clientGender }} </span>
+        </div>
+
+        <div class="client-detail__property">
+          <span class="client-detail__label">Personal Number :</span>
+          <span class="client-detail__value">{{ client.clientPersonalNumber }}</span>
+        </div>
+
+        <div class="client-detail__property client-detail__property--extra-margin">
+          <span class="client-detail__label">Mobile Number :</span>
+          <span class="client-detail__value">{{ client.clientMobileNumber }} </span>
+        </div>
+
+        <div class="client-detail__property">
+          <div style="display: flex">
+            <span class="client-detail__label">Legal Address :</span>
+            <div class="client-detail__value" style="margin-top: 4px">
+              <p>Country: {{ client.legalAddress.country }}</p>
+              <p>City: {{ client.legalAddress.city }}</p>
+              <p>Address: {{ client.legalAddress.address }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="client-detail__property">
+          <div style="display: flex">
+            <span class="client-detail__label">Living address :</span>
+            <div class="client-detail__value" style="margin-top: 4px">
+              <p>Country: {{ client.actualAddress.country }}</p>
+              <p>City: {{ client.actualAddress.city }}</p>
+              <p>Address: {{ client.actualAddress.address }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <app-client-accounts class="col-xs-12"> </app-client-accounts>
+</div>
+
+<app-prompt
+  [title]="'Are you sure do you want delete this Account?'"
+  [isShow]="isPromptShow"
+  (promptEvent)="promptEvent($event)"
+></app-prompt>

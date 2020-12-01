@@ -1,0 +1,12 @@
+<div *ngIf="isShow" class="prompt">
+  <div class="prompt__text-box">
+    <button class="btn btn-danger pull-right prompt__close-button" (click)="close()">X</button>
+    <div class="prompt__content-box">
+      <h1 class="prompt__title">{{ title }}</h1>
+      <div>
+        <button class="btn btn-danger prompt__button" (click)="close()">No</button>
+        <button class="btn btn-success prompt__button" (click)="accept()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

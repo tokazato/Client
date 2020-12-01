@@ -1,0 +1,97 @@
+<div class="row account-form">
+  <div class="col-xs-12">
+    <form [formGroup]="clientAccountForm" (ngSubmit)="saveAccounts()">
+      <h1 class="account-form__title">Add New Account</h1>
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            [disabled]="!clientAccountForm.valid"
+            class="btn btn-success account-form__button"
+            type="submit"
+          >
+            Save
+          </button>
+          <button type="button" class="btn btn-danger account-form__button" (click)="onCancel()">
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="btn btn-success account-form__button"
+            (click)="addNewAccountForm()"
+          >
+            Add New Account Form
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-xs-12" formArrayName="accounts">
+          <div
+            class="row"
+            *ngFor="let account of clientAccountForm.get('accounts')['controls']; let i = index"
+            [formGroupName]="i"
+          >
+            <br />
+            <div class="row" *ngIf="clientAccountForm.get('accounts')['controls'].length > 1">
+              <div class="col-xs-3">
+                <button (click)="onDeleteClients(i)" type="button" class="btn btn-danger">X</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="form-group">
+                  <label class="account-form__label" for="name">Account Number</label>
+                  <input type="text" class="form-control" formControlName="accountNumber" />
+                  <span *ngIf="accountExist" [class.errorText]="accountExist">
+                    ასეთი ექაუნთი უკვე არსებობს
+                  </span>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="form-group">
+                  <label class="account-form__label" for="name">Client Number</label>
+                  <input type="text" class="form-control" formControlName="clientNumber" disabled />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="form-group">
+                  <label class="account-form__label" for="accountType">Account Type </label>
+                  <select class="form-control" formControlName="accountType">
+                    <option class="account-form__option" value="Current">Current</option>
+                    <option class="account-form__option" value="Saving">Saving</option>
+                    <option class="account-form__option" value="Accumulative">Accumulative</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="form-group">
+                  <label class="account-form__label" for="currency">Currency </label>
+                  <select class="form-control" formControlName="accountCurrency">
+                    <option class="account-form__option" value="GEL">GEL</option>
+                    <option class="account-form__option" value="USD">USD</option>
+                    <option class="account-form__option" value="EUR">EUR</option>
+                    <option class="account-form__option" value="RUB">RUB</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label class="account-form__label" for="accountStatus">Account Status </label>
+                  <select class="form-control" formControlName="accountStatus">
+                    <option class="account-form__option" value="Active">Active</option>
+                    <option class="account-form__option" value="Closed">Closed</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-loader *ngIf="isLoader"></app-loader>

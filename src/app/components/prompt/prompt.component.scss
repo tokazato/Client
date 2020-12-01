@@ -1,0 +1,43 @@
+.prompt {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  &__text-box {
+    background-color: #fff;
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__close-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  &__content-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+  }
+  &__title {
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 26px;
+    padding: 0 100px;
+    font-family: cursive;
+    color: #337ab7;
+  }
+  &__button {
+    margin: 0 20px;
+    width: 100px;
+    font-family: cursive;
+  }
+}

@@ -1,0 +1,33 @@
+<div class="accounts">
+  <hr />
+
+  <button class="btn btn-primary" [routerLink]="['/clients/' + clientId + '/new-account']">
+    Add New Account
+  </button>
+
+  <h2 class="accounts__title">Client Accounts Table</h2>
+  <p-table [value]="accounts" [paginator]="true" [rows]="20">
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="accounts__th">Client Number</th>
+        <th class="accounts__th">Currency</th>
+        <th class="accounts__th">Account Number</th>
+        <th class="accounts__th">Status</th>
+        <th class="accounts__th">Account Type</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-account>
+      <tr [class.accounts__disabled]="account.accountStatus === 'Closed'">
+        <td class="accounts__td">{{ account.clientNumber }}</td>
+        <td class="accounts__td">{{ account.accountCurrency }}</td>
+        <td class="accounts__td">{{ account.accountNumber }}</td>
+        <td class="accounts__td">{{ account.accountStatus }}</td>
+        <td class="accounts__td">{{ account.accountType }}</td>
+        <td>
+          <button (click)="closeAccount(account)" class="btn btn-danger">ანგარიშის დახურვა</button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

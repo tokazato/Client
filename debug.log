@@ -1,0 +1,2 @@
+[1201/123007.286:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1201/124544.093:ERROR:file_io_win.cc(162)] CreateFile C:\Users\TORNIK~1\AppData\Local\Temp\karma-21900552\Crashpad\settings.dat: The system cannot find the file specified. (0x2)

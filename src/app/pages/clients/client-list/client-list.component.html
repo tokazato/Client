@@ -1,0 +1,90 @@
+<div class="row client-list">
+  <div class="">
+    <button class="client-list__button btn btn-primary" routerLink="new">Add Client</button>
+  </div>
+
+  <p-table
+    #dt2
+    [value]="clients"
+    [paginator]="true"
+    [rows]="20"
+    [globalFilterFields]="['clientNumber', 'clientName', 'clientMobileNumber']"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            class="client-list__search"
+            pInputText
+            type="text"
+            (input)="dt2.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search keyword"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr colspan="12">
+        <th>Thumbnail</th>
+        <th>Number</th>
+        <th pSortableColumn="clientName">Name <p-sortIcon field="clientName"></p-sortIcon></th>
+        <th>Mobile</th>
+        <th>Actions</th>
+      </tr>
+      <tr colspan="12">
+        <th></th>
+        <th>
+          <p-columnFilter type="text" field="clientNumber"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="clientName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="clientMobileNumber"></p-columnFilter>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-client>
+      <tr>
+        <td>
+          <img class="client-list__thumbnail" [src]="client.clientImage" alt="Thumbnail" />
+        </td>
+        <td>{{ client.clientNumber }}</td>
+        <td>{{ client.clientName }}</td>
+        <td>{{ client.clientMobileNumber }}</td>
+        <td>
+          <a
+            class="client-list__link"
+            [routerLink]="['/clients/' + client.id]"
+            routerLinkActive="router-link-active"
+          >
+            <i class="pi pi-user client-list__icon"></i>
+          </a>
+
+          <a class="client-list__link" [routerLink]="client.id + '/edit'">
+            <i class="pi pi-user-edit client-list__icon"></i>
+          </a>
+
+          <a class="client-list__link" (click)="delete(client)">
+            <i class="pi pi-trash client-list__icon"></i>
+          </a>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td>No customers found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<app-prompt
+  [title]="'Are you sure do you want delete this Client?'"
+  [isShow]="isPromptShow"
+  (promptEvent)="promptEvent($event)"
+></app-prompt>
+
+<app-loader *ngIf="isLoader"></app-loader>
