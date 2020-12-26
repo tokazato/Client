@@ -95,7 +95,7 @@ export class ClientNewAccountComponent implements OnInit, OnDestroy {
           this.clientNumber = client.clientNumber;
           this.formInit();
         } else {
-          this.router.navigate(['/clients']);
+          this.router.navigate(['./clients']);
         }
       });
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private languageService: LanguageService, private router: Router) {}
   ngOnInit(): void {}
+
+  selectedLang(lang: string) {
+    this.router.navigate(['/' + lang + this.router.url.substring(3)]);
+    this.languageService.setLanguage(lang);
+  }
 }

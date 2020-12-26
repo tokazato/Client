@@ -1,12 +1,35 @@
 .header {
   &__title {
     margin-top: 0;
-    padding-bottom: 20px;
     font-family: system-ui;
     color: #034885;
   }
 
   &__button {
     margin-right: 10px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 18px;
+    color: #034885;
+    cursor: pointer;
+  }
+  &__lang-ka {
+    margin-right: 5px;
+  }
+  &__lang-us {
+    margin-left: 5px;
   }
 }

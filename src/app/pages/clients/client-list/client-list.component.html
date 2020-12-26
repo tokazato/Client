@@ -27,9 +27,13 @@
     <ng-template pTemplate="header">
       <tr colspan="12">
         <th>Thumbnail</th>
-        <th pSortableColumn="clientNumber">Number <p-sortIcon field="clientNumber"></p-sortIcon></th>
+        <th pSortableColumn="clientNumber">
+          Number <p-sortIcon field="clientNumber"></p-sortIcon>
+        </th>
         <th pSortableColumn="clientName">Name <p-sortIcon field="clientName"></p-sortIcon></th>
-        <th pSortableColumn="clientMobileNumber">Mobile <p-sortIcon field="clientMobileNumber"></p-sortIcon></th>
+        <th pSortableColumn="clientMobileNumber">
+          Mobile <p-sortIcon field="clientMobileNumber"></p-sortIcon>
+        </th>
         <th>Actions</th>
       </tr>
       <tr colspan="12">
@@ -57,7 +61,7 @@
         <td>
           <a
             class="client-list__link"
-            [routerLink]="['/clients/' + client.id]"
+            [routerLink]="['./' + client.id]"
             routerLinkActive="router-link-active"
           >
             <i class="pi pi-user client-list__icon"></i>

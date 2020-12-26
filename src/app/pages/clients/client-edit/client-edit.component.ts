@@ -168,7 +168,7 @@ export class ClientEditComponent implements OnInit, OnDestroy {
         Validators.pattern(Patterns.number),
       ]),
       clientName: new FormControl(clientName, [
-        Validators.required, 
+        Validators.required,
         Validators.pattern(Patterns.geoAndEng),
         Validators.minLength(2),
         Validators.maxLength(50),

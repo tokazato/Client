@@ -53,7 +53,7 @@ export class ClientDetailComponent implements OnInit, OnDestroy {
         if (selectedclient) {
           this.client = selectedclient;
         } else {
-          this.router.navigate(['/clients/new']);
+          this.router.navigate(['./clients/new']);
         }
       });
   }
@@ -70,7 +70,7 @@ export class ClientDetailComponent implements OnInit, OnDestroy {
     if (isAccept) {
       this.clientSub$ = this.clientService.deleteClient(this.clientId).subscribe(() => {
         this.store.dispatch(fromClientsActions.delete_clients({ index: this.clientId }));
-        this.router.navigate(['/clients']);
+        this.router.navigate(['./clients']);
       });
       this.isPromptShow = false;
     } else {

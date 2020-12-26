@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from '../components/components.module';
 
 import { HeaderComponent } from './header/header.component';
@@ -16,11 +17,11 @@ const COMPONENTS = [LayoutComponent, HeaderComponent];
     CommonModule,
     LayoutRoutingModule,
     ComponentsModule,
-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    TranslateModule,
   ],
   declarations: [COMPONENTS],
   exports: [COMPONENTS],

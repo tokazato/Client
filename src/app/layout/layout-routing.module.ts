@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from '../pages/home/home.component';
 
 import { LayoutComponent } from './layout.component';
 
@@ -10,8 +11,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/clients',
-        pathMatch: 'full',
+        component: HomeComponent,
       },
       {
         path: 'clients',
